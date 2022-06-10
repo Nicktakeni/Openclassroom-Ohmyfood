@@ -1,0 +1,124 @@
+.list-item {
+    padding: 1.5em 1em;
+    text-align: left;
+    border-radius: 1em;
+    box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+    background-color: $txt-fond-sombre;
+}
+
+.btn {
+
+    padding: 1em 1.5em;
+    color: $txt-fond-sombre;
+    transition: 250ms;
+
+    &--gradient {
+
+        background-image: radial-gradient(100% 50% at 20% 10%,
+                $rose-secondaire 0%,
+                $violet-primaire 200%);
+    }
+
+
+
+    &--radius {
+        border-radius: 2em;
+    }
+
+    &:hover {
+        opacity: 0.8;
+        box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.btn__like,
+button {
+    & .heart-away {
+        display: block;
+        transform: scale(1);
+        transition: all 0.5s;
+    }
+
+    & .heart-hover {
+        display: block;
+        position: absolute;
+        top: 0;
+        transform: scale(0);
+        transition: all 0.5s;
+        background-color: black;
+        background-image: linear-gradient(0deg, $rose-secondaire, $violet-primaire);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+
+    }
+
+}
+
+.btn__like:hover,
+button:hover {
+    & .heart-away {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    & .heart-hover {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+.loader {
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    animation: 1s fadeOut 5000ms forwards;
+
+    &:after {
+        display: grid;
+        place-content: center;
+        font-size: 3em;
+        font-family: 'Shrikhand', cursive;
+        content: "Ohmyfood";
+        animation: spin 2s infinite forwards;
+        height: 150px;
+        width: 150px;
+        border: 10px solid #f3f3f3;
+        border-top: $violet-primaire 10px solid;
+        border-bottom: $aqua-tertiaire 10px solid;
+        border-left: $rose-secondaire 10px solid;
+        border-radius: 50%;
+
+    }
+
+
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,502 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
+main .menuDuResto, main .lesRestaurants, main .commentCaMarche, main .presentation, main .localisation, header {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+main .menuDuResto__carte h3::after {
+  border-bottom: 3px #99E2D0 solid;
+  content: "";
+  display: block;
+  width: 3rem;
+}
+
+.list-item {
+  padding: 1.5em 1em;
+  text-align: left;
+  border-radius: 1em;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.btn {
+  padding: 1em 1.5em;
+  color: #ffffff;
+  transition: 250ms;
+}
+.btn--gradient {
+  background-image: radial-gradient(100% 50% at 20% 10%, #FF79DA 0%, #9356DC 200%);
+}
+.btn--radius {
+  border-radius: 2em;
+}
+.btn:hover {
+  opacity: 0.8;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+}
+
+.btn__like .heart-away,
+button .heart-away {
+  display: block;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+.btn__like .heart-hover,
+button .heart-hover {
+  display: block;
+  position: absolute;
+  top: 0;
+  transform: scale(0);
+  transition: all 0.5s;
+  background-color: black;
+  background-image: linear-gradient(0deg, #FF79DA, #9356DC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.btn__like:hover .heart-away,
+button:hover .heart-away {
+  opacity: 0;
+  transform: scale(0);
+}
+.btn__like:hover .heart-hover,
+button:hover .heart-hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.loader {
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  animation: 1s fadeOut 5000ms forwards;
+}
+.loader:after {
+  display: grid;
+  place-content: center;
+  font-size: 3em;
+  font-family: "Shrikhand", cursive;
+  content: "Ohmyfood";
+  animation: spin 2s infinite forwards;
+  height: 150px;
+  width: 150px;
+  border: 10px solid #f3f3f3;
+  border-top: #9356DC 10px solid;
+  border-bottom: #99E2D0 10px solid;
+  border-left: #FF79DA 10px solid;
+  border-radius: 50%;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+header {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 1em;
+}
+header h1 {
+  grid-row: 1 / auto;
+  grid-column: 1 / auto;
+  font-family: "Shrikhand", cursive;
+}
+header .btn__retourHome {
+  grid-row: 1 / auto;
+  grid-column: 1 / auto;
+  justify-self: start;
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #000000;
+}
+
+/* Début Main */
+main {
+  font-family: "Roboto", sans-serif;
+  /* Debut section localisation */
+  /* Fin section localisation */
+  /* Debut section presentation */
+  /* Fin section presentation */
+  /* Debut section commentCaMarche */
+  /* Fin section commentCaMarche */
+  /* Debut section lesRestaurants */
+  /* Fin section lesRestaurants */
+}
+main .localisation {
+  padding: 1em;
+  background: #eaeaea;
+  background: linear-gradient(180deg, rgba(173, 173, 173, 0.35) 0%, rgba(234, 234, 234, 0.75) 15%, rgb(234, 234, 234) 100%);
+}
+main .localisation i {
+  padding: 0 0.5em 0 0;
+}
+main .presentation {
+  padding: 2em 0 3em;
+  background: #f6f6f6;
+  text-align: center;
+}
+main .presentation h2 {
+  padding: 0 5em;
+}
+main .presentation p {
+  padding: 1em 5em 2em;
+}
+main .commentCaMarche {
+  grid-template-columns: repeat(1, 1fr);
+}
+main .commentCaMarche h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / 2;
+  justify-self: start;
+}
+main .commentCaMarche ol {
+  grid-row: 2 / auto;
+  grid-column: 1 / 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2em;
+  margin: 1em 1em 0;
+  justify-self: normal;
+  counter-reset: michel;
+}
+@media screen and (max-width: 990px) {
+  main .commentCaMarche ol {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media screen and (max-width: 740px) {
+  main .commentCaMarche ol {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+main .commentCaMarche ol li::before {
+  counter-increment: michel;
+  content: counter(michel);
+  position: relative;
+  left: -1.9em;
+  padding: 0.3em 0.6em;
+  border-radius: 70%;
+  background-color: #9356DC;
+  color: #ffffff;
+}
+main .commentCaMarche ol li:hover {
+  background-color: #f2eafb;
+}
+main .commentCaMarche ol li:hover i {
+  color: #9356DC;
+}
+main .commentCaMarche ol p {
+  display: inline-block;
+  position: relative;
+  left: -0.7em;
+}
+main .commentCaMarche ol i {
+  padding: 0 1em 0 0;
+}
+main .lesRestaurants {
+  grid-template-columns: repeat(1, 1fr);
+  text-align: center;
+  background-color: #f6f6f6;
+  border-radius: 1em;
+  margin-top: 2em;
+}
+main .lesRestaurants h2 {
+  padding: 1em 0;
+}
+main .lesRestaurants ul {
+  grid-row: 2 / auto;
+  grid-column: 1 / 5;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2em;
+  justify-self: normal;
+  margin: 1em 0;
+}
+@media screen and (max-width: 990px) {
+  main .lesRestaurants ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 740px) {
+  main .lesRestaurants ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+main .lesRestaurants ul li {
+  width: 100%;
+  display: inline-block;
+}
+main .lesRestaurants ul a {
+  display: block;
+  position: relative;
+  padding: 0 0 0.7rem 0;
+  color: #000000;
+  border-radius: 1.5em;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+main .lesRestaurants ul .sticker {
+  position: absolute;
+  color: #008766;
+  background-color: #99e2d0;
+  right: 1em;
+  top: 1em;
+  padding: 5px;
+  transition: all 0.3s;
+  border-radius: 0.2em;
+}
+main .lesRestaurants ul .sticker:hover {
+  transform: scale(1.2);
+}
+main .lesRestaurants ul a:hover {
+  opacity: 0.8;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+}
+main .lesRestaurants ul img {
+  height: 12.5em;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  padding: 0 0 0.5rem 0;
+}
+main .lesRestaurants ul h3,
+main .lesRestaurants ul p {
+  padding: 0 1rem 0.5rem;
+}
+main .lesRestaurants ul .btn__like {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+main .menuDuResto {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0 0 3em;
+  justify-items: normal;
+  background: #f6f6f6;
+}
+main .menuDuResto__cover {
+  margin: 0 0 -5em 0;
+  object-fit: cover;
+  width: 100%;
+  height: 20rem;
+}
+main .menuDuResto__carte {
+  padding: 2em 1em 0;
+  background: #f6f6f6;
+  border-radius: 3em 3em 0 0;
+}
+main .menuDuResto__carte h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / 4;
+  justify-self: start;
+  margin: 0 0 1em;
+  font-family: "Shrikhand", cursive;
+  font-size: 2em;
+}
+main .menuDuResto__carte h2 button {
+  margin: 0 0 0 2rem;
+  font-size: 1em;
+  position: relative;
+}
+main .menuDuResto__carte h3 {
+  grid-row: 2 / auto;
+  grid-column: 1 / 4;
+  justify-self: start;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+main .menuDuResto__carte ul {
+  grid-row: 3 / auto;
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5em;
+  margin: 1em 0 2.5em;
+  justify-self: normal;
+}
+@media screen and (max-width: 990px) {
+  main .menuDuResto__carte ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media screen and (max-width: 740px) {
+  main .menuDuResto__carte ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+main .menuDuResto__carte ul .list-item {
+  position: relative;
+  padding: 1em;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 1.05em;
+  animation: showingDishes 1000ms forwards;
+  opacity: 0;
+}
+main .menuDuResto__carte ul .list-item--1 {
+  animation-delay: 200ms;
+}
+main .menuDuResto__carte ul .list-item--2 {
+  animation-delay: 400ms;
+}
+main .menuDuResto__carte ul .list-item--3 {
+  animation-delay: 600ms;
+}
+main .menuDuResto__carte ul .list-item--4 {
+  animation-delay: 800ms;
+}
+main .menuDuResto__carte ul .list-item--5 {
+  animation-delay: 1000ms;
+}
+main .menuDuResto__carte ul .list-item--6 {
+  animation-delay: 1200ms;
+}
+main .menuDuResto__carte ul .list-item--7 {
+  animation-delay: 1400ms;
+}
+main .menuDuResto__carte ul .list-item--8 {
+  animation-delay: 1600ms;
+}
+main .menuDuResto__carte ul .list-item--9 {
+  animation-delay: 1800ms;
+}
+@keyframes showingDishes {
+  0% {
+    transform: translateY(2em);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+main .menuDuResto__carte ul .list-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 80%;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+main .menuDuResto__carte ul .list-item p {
+  font-size: 1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 80%;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+main .menuDuResto__carte ul .list-item strong {
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  transition: all 0.5s;
+  font-weight: 600;
+}
+main .menuDuResto__carte ul .list-item span {
+  position: absolute;
+  top: 0;
+  right: -5rem;
+  width: 5rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background: #99E2D0;
+  font-size: 1.5em;
+  transition: all 0.5s;
+}
+main .menuDuResto__carte ul .list-item span .fa-check-circle {
+  transform: rotate(-240deg);
+  transition: all 1s;
+}
+main .menuDuResto__carte ul .list-item:hover p {
+  width: 60%;
+}
+main .menuDuResto__carte ul .list-item:hover strong {
+  right: 6.5rem;
+}
+main .menuDuResto__carte ul .list-item:hover span {
+  right: 0;
+}
+main .menuDuResto__carte ul .list-item:hover span i {
+  transform: rotate(0deg);
+}
+main .menuDuResto__carte ul .list-item:hover h4 {
+  width: 70%;
+}
+main .menuDuResto a {
+  padding: 1em 2.5em;
+  justify-self: center;
+}
+
+footer {
+  grid-template-columns: repeat(1, 1fr);
+  background-color: #353535;
+  text-align: center;
+  color: #ffffff;
+  padding-left: 1em;
+}
+@media screen and (max-width: 740px) {
+  footer {
+    text-align: left;
+    padding-left: 1em;
+  }
+}
+footer h2 {
+  padding: 0.5em 0 0.5em 0;
+}
+footer ul {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+footer ul li {
+  border-bottom: solid 1px transparent;
+}
+@media screen and (max-width: 990px) {
+  footer ul {
+    flex-direction: row;
+  }
+}
+@media screen and (max-width: 740px) {
+  footer ul {
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 5px;
+  }
+}
+footer ul a {
+  color: #ffffff;
+}
+footer ul a:hover {
+  border-bottom: solid 2px white;
+}
+footer ul a i {
+  padding-right: 0.5em;
+}
