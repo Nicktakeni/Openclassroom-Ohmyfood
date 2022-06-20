@@ -497,6 +497,9 @@ footer ul a {
 footer ul a:hover {
   border-bottom: solid 2px white;
 }
+footer ul a .fa-hands-helping {
+  font-size: 0.8em;
+}
 footer ul a i {
   padding-right: 0.5em;
 }
